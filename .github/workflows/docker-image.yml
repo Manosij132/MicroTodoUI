@@ -24,7 +24,7 @@ jobs:
           subscription-id: a042c51a-bb9d-48f6-af09-55adf40d7a98
 
       - name: Build docker image
-        run: docker buildx build -t Microtodoui:v1
+        run: docker buildx build -t Microtodoui:v1 .
 
       - name: Login to ACR
         run: az acr login --name manoacr6163
