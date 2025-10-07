@@ -1,0 +1,39 @@
+name: Docker Tag and Push
+
+on:
+  push:
+    branches:
+      - main
+
+permissions:
+  id-token: write
+  contents: read      
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+
+      - name: Azure Login
+        uses: Azure/login@v2.3.0
+        with:
+          client-id: 4389780a-c0d6-40ff-ba18-cf2728155c66
+          tenant-id: 3f024170-9837-48ba-a8f4-088d76095ad3
+          subscription-id: a042c51a-bb9d-48f6-af09-55adf40d7a98
+
+      - name: Build docker image
+        run: docker buildx build -t Microtodoui:v1
+
+      - name: Login to ACR
+        run: az acr login --name manoacr6163
+
+      - name: Docker tag
+        run: docker tag Microtodoui:v1 manoacr6163.azurecr.io/Microtodoui:v1
+
+      - name: Docker push to ACR
+        run: docker push manoacr6163.azurecr.io/Microtodoui:v1
+        
+         
+                
+             
