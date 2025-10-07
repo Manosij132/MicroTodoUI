@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: todouideployment
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: todoui
+  template:
+    metadata:
+      labels:
+        app: todoui
+    spec:
+      containers:
+      - name: todoui
+        image: manoacr6163.azurecr.io/microtodoui:v1
+        ports:
+        - containerPort: 80
