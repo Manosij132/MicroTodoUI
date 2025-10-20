@@ -24,16 +24,16 @@ jobs:
           subscription-id: 90ba3f99-29ea-4a71-8106-8a6775ca9f61
 
       - name: Build docker image
-        run: docker buildx build -t microtodoui:v1 .
+        run: docker buildx build -t microtodoui:v2 .
 
       - name: Login to ACR
         run: az acr login --name manoacr616312
 
       - name: Docker tag
-        run: docker tag microtodoui:v1 manoacr616312.azurecr.io/microtodoui:v1
+        run: docker tag microtodoui:v2 manoacr616312.azurecr.io/microtodoui:v2
 
       - name: Docker push to ACR
-        run: docker push manoacr616312.azurecr.io/microtodoui:v1
+        run: docker push manoacr616312.azurecr.io/microtodoui:v2
         
          
                 
