@@ -6,9 +6,9 @@ import { Box } from '@mui/material';
 import config from './config'; // Import the config file with environment variable support
 
 // Use the config to define API URLs
-const GET_TASKS_API_BASE_URL = "http://gettasktodo.mano.com/";
-const DELETE_TASK_API_BASE_URL = "http://deletetasktodo.mano.com/";
-const CREATE_TASK_API_BASE_URL = "http://addtasktodo.mano.com/";
+const GET_TASKS_API_BASE_URL = "http://gettasktodo.mano.com";
+const DELETE_TASK_API_BASE_URL = "http://deletetasktodo.mano.com";
+const CREATE_TASK_API_BASE_URL = "http://addtasktodo.mano.com";
 
 //Update Task Functionality is Work In Progress
 // const UPDATE_TASK_API_BASE_URL = '';
