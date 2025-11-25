@@ -19,21 +19,21 @@ jobs:
       - name: Azure Login
         uses: Azure/login@v2.3.0
         with:
-          client-id: d4bc3dd5-ac8c-43a2-bb54-79e0a1f7d8ed
-          tenant-id: 81c83f06-4c13-4757-9b94-36ce6d08c87a
-          subscription-id: 90ba3f99-29ea-4a71-8106-8a6775ca9f61
+          client-id: acb3d991-a6f1-4d2a-adae-cf23331bcdfa
+          tenant-id: ce2f68bd-57d5-44f2-ab38-0c7ced51b46b
+          subscription-id: 30795018-f759-40ff-9c87-7d73f6cc4d87
 
       - name: Build docker image
-        run: docker buildx build -t microtodoui:v3 .
+        run: docker buildx build -t microtodoui:v1 .
 
       - name: Login to ACR
-        run: az acr login --name manoacr616312
+        run: az acr login --name manoclusterregistry
 
       - name: Docker tag
-        run: docker tag microtodoui:v3 manoacr616312.azurecr.io/microtodoui:v3
+        run: docker tag microtodoui:v1 manoclusterregistry.azurecr.io/microtodoui:v1
 
       - name: Docker push to ACR
-        run: docker push manoacr616312.azurecr.io/microtodoui:v3
+        run: docker push manoclusterregistry.azurecr.io/microtodoui:v1
         
          
                 
